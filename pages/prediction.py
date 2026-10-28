@@ -14,6 +14,8 @@ st.subheader("It is a predictor which uses a machine learning model to predict t
 import os
 model_path = os.path.join(os.path.dirname(__file__), "..", "credit_card_fraud_detection_model.pkl")
 with open(model_path, "rb") as file:
+    model = pickle.load(file)
+     
 col1,col2 = st.columns([2,2])
 with col1:
     time = st.number_input("enter the Time")
@@ -58,6 +60,10 @@ if(button):
     ax.set_title("Transaction Probability", color="white")
 
     ax.spines["bottom"].set_color("white")
+    ax.spines["left"].set_color("white")
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    st.pyplot(ax.figure)
     ax.spines["left"].set_color("white")
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
