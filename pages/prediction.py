@@ -11,8 +11,9 @@ with col2:
      st.image("https://img.lovepik.com/element/45017/8384.png_860.png",width = 150)
 st.subheader("It is a predictor which uses a machine learning model to predict the credit card transaction")
 
-with open (r"C:\Users\chato\Downloads\credit_card_fraud_detection_model.pkl","rb") as file:
-    model = pickle.load(file)
+import os
+model_path = os.path.join(os.path.dirname(__file__), "..", "credit_card_fraud_detection_model.pkl")
+with open(model_path, "rb") as file:
 col1,col2 = st.columns([2,2])
 with col1:
     time = st.number_input("enter the Time")
